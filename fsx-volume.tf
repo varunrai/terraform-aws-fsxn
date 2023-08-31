@@ -7,7 +7,7 @@ resource "aws_fsx_ontap_volume" "fsxvol" {
   security_style             = each.value.security_style
   size_in_megabytes          = each.value.size_in_megabytes
   storage_efficiency_enabled = each.value.storage_efficiency_enabled
-  storage_virtual_machine_id = aws_fsx_ontap_storage_virtual_machine.fsxsvm[0].id
+  storage_virtual_machine_id = aws_fsx_ontap_storage_virtual_machine.fsxsvm.svm01.id
   skip_final_backup          = each.value.skip_final_backup
 
   tiering_policy {

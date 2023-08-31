@@ -132,5 +132,6 @@ variable "volumes" {
     storage_efficiency_enabled = bool
     skip_final_backup          = bool
     tiering_policy             = string
+    cooling_period             = number
   }))
 }
