@@ -130,7 +130,6 @@ variable "volumes" {
     security_style             = string
     size_in_megabytes          = number
     storage_efficiency_enabled = bool
-    storage_virtual_machine_id = string
     skip_final_backup          = bool
     tiering_policy             = string
   }))
