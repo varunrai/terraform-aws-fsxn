@@ -1,7 +1,7 @@
 variable "filesystem" {
   type = object({
     name                    = string
-    hroughput_capacity      = number
+    throughput_capacity     = number
     storage_capacity_in_gb  = number
     volume_security_style   = string
     deployment_type_multiaz = bool

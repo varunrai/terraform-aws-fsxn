@@ -1,6 +1,6 @@
 locals {
   volumes = flatten([
-    for svm_key, svm in var.svm : [
+    for svm_key, svm in var.filesystem.svm : [
       for volume in svm.volumes : {
         name                       = volume.name
         junction_path              = volume.junction_path
