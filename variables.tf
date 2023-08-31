@@ -114,7 +114,7 @@ variable "ad_administrators_group" {
   default     = "FSXN Administrators"
 }
 
-var "svm" {
+variable "svm" {
   type = list(object({
     name                       = string
     root_volume_security_style = string
@@ -129,7 +129,7 @@ var "svm" {
   }))
 }
 
-var "volumes" {
+variable "volumes" {
   type = list(object({
     name                       = string
     junction_path              = string
