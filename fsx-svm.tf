@@ -3,16 +3,16 @@ resource "aws_fsx_ontap_storage_virtual_machine" "fsxsvm" {
   for_each = { for svm in var.svm : svm.name => svm }
 
   file_system_id             = aws_fsx_ontap_file_system.fsx_ontap_fs.id
-  name                       = svm.value.name
-  root_volume_security_style = svm.value.enable_smb ? "NTFS" : svm.value.fsxn_volume_security_style
-  svm_admin_password         = svm.value.svm_admin_password
+  name                       = each.value.name
+  root_volume_security_style = each.value.enable_smb ? "NTFS" : each.value.fsxn_volume_security_style
+  svm_admin_password         = each.value.svm_admin_password
 
   lifecycle {
     ignore_changes = [active_directory_configuration]
   }
 
   dynamic "active_directory_configuration" {
-    for_each = svm.enable_smb ? [1] : []
+    for_each = each.value.enable_smb ? [1] : []
     content {
       netbios_name = var.ad_svm_netbiosname
       self_managed_active_directory_configuration {
