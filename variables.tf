@@ -121,12 +121,6 @@ variable "svm" {
     svm_admin_password         = string
     enable_smb                 = bool
   }))
-
-  default = list(object({
-    root_volume_security_style = "NTFS"
-    svm_admin_password         = ""
-    enable_smb                 = false
-  }))
 }
 
 variable "volumes" {
@@ -139,13 +133,5 @@ variable "volumes" {
     storage_virtual_machine_id = string
     skip_final_backup          = bool
     tiering_policy             = string
-  }))
-
-  default = list(object({
-    security_style              = "NTFS"
-    storage_efficiency_enabled  = true
-    skip_final_backup           = true
-    tiering_policy              = "AUTO"
-    tiering_policy_cooling_days = "7"
   }))
 }
