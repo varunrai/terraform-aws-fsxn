@@ -44,7 +44,7 @@ variable "fsxn_preferred_subnet_id" {
   type        = string
 }
 
-variable "fsxn_deployment_type" {
+variable "fsxn_deployment_type_multiaz" {
   description = "FSxN Deployment Type - Multi AZ (set as true) or Single AZ (set as false)"
   type        = bool
   default     = false
