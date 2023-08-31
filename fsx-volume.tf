@@ -7,7 +7,7 @@ locals {
         security_style             = volume.security_style
         size_in_megabytes          = volume.size_in_megabytes
         storage_efficiency_enabled = volume.storage_efficiency_enabled
-        svm_name                   = svm_key
+        svm_name                   = svm.name
         skip_final_backup          = volume.skip_final_backup
         tiering_policy             = volume.tiering_policy
         cooling_period             = volume.cooling_period
