@@ -6,7 +6,8 @@ Terraform Module to deploy basic setup of Amazon FSx for NetApp ONTAP
 
 Include the module in your terraform code using the example below:
 
-```json
+```HCL
+
 module "fsxontap-fs" {
   source = "https://github.com/varunrai/terraform-aws-fsxn.git"
 
