@@ -4,7 +4,7 @@ resource "aws_fsx_ontap_storage_virtual_machine" "fsxsvm" {
 
   file_system_id             = aws_fsx_ontap_file_system.fsx_ontap_fs.id
   name                       = each.value.name
-  root_volume_security_style = each.value.enable_smb ? "NTFS" : each.value.fsxn_volume_security_style
+  root_volume_security_style = each.value.enable_smb ? "NTFS" : each.value.root_volume_security_style
   svm_admin_password         = each.value.svm_admin_password
 
   lifecycle {
