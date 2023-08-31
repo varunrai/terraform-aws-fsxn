@@ -120,18 +120,15 @@ variable "svm" {
     root_volume_security_style = string
     svm_admin_password         = string
     enable_smb                 = bool
-  }))
-}
-
-variable "volumes" {
-  type = list(object({
-    name                       = string
-    junction_path              = string
-    security_style             = string
-    size_in_megabytes          = number
-    storage_efficiency_enabled = bool
-    skip_final_backup          = bool
-    tiering_policy             = string
-    cooling_period             = number
+    volumes = list(object({
+      name                       = string
+      junction_path              = string
+      security_style             = string
+      size_in_megabytes          = number
+      storage_efficiency_enabled = bool
+      skip_final_backup          = bool
+      tiering_policy             = string
+      cooling_period             = number
+    }))
   }))
 }
