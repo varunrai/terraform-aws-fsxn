@@ -1,5 +1,5 @@
 resource "aws_fsx_ontap_storage_virtual_machine" "fsxsvm" {
-  
+
   for_each = { for svm in var.svm : svm.name => svm }
 
   file_system_id             = aws_fsx_ontap_file_system.fsx_ontap_fs.id
@@ -14,7 +14,7 @@ resource "aws_fsx_ontap_storage_virtual_machine" "fsxsvm" {
   dynamic "active_directory_configuration" {
     for_each = svm.enable_smb ? [1] : []
     content {
-      netbios_name = var,ad_svm_netbiosname
+      netbios_name = var.ad_svm_netbiosname
       self_managed_active_directory_configuration {
         domain_name                            = var.ad_domain_name
         dns_ips                                = var.ad_dns_ips
