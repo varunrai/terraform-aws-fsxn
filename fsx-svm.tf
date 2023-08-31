@@ -21,7 +21,7 @@ resource "aws_fsx_ontap_storage_virtual_machine" "fsxsvm" {
         file_system_administrators_group       = each.value.ad.administrators_group
         organizational_unit_distinguished_name = each.value.ad.ou
         username                               = each.value.ad.service_account
-        password                               = each.value.ad.service_Account_password
+        password                               = each.value.ad.service_account_password
       }
     }
   }
