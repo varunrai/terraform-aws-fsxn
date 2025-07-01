@@ -7,15 +7,15 @@ resource "aws_fsx_ontap_storage_virtual_machine" "fsxsvm" {
   root_volume_security_style = each.value.enable_smb ? "NTFS" : each.value.root_volume_security_style
   svm_admin_password         = each.value.svm_admin_password
 
-  # lifecycle {
-  #   ignore_changes = [active_directory_configuration]
-  # }
+   lifecycle {
+     ignore_changes = [active_directory_configuration]
+   }
 
   dynamic "active_directory_configuration" {
     for_each = each.value.enable_smb ? [1] : []
     content {
       netbios_name = each.value.ad.svm_netbiosname
-      self_managed_active_directory {
+      self_managed_active_directory_configuration {
         domain_name                            = each.value.ad.domain_name
         dns_ips                                = each.value.ad.dns_ips
         file_system_administrators_group       = each.value.ad.administrators_group
