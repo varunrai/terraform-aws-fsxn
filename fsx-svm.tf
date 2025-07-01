@@ -15,7 +15,7 @@ resource "aws_fsx_ontap_storage_virtual_machine" "fsxsvm" {
     for_each = each.value.enable_smb ? [1] : []
     content {
       netbios_name = each.value.ad.svm_netbiosname
-      self_managed_active_directory_configuration {
+      self_managed_active_directory {
         domain_name                            = each.value.ad.domain_name
         dns_ips                                = each.value.ad.dns_ips
         file_system_administrators_group       = each.value.ad.administrators_group
